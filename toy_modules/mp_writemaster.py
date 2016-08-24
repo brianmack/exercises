@@ -16,6 +16,23 @@ then in general there would only be blocking during the
 requests for the first N ids (assuming all files contained most
 ids).
 
+A sample invocation in the child process would be something like:
+
+
+# release current file 
+current_file.close()
+request = (current_id, pid, 0)
+q_out.put(request) # no wait
+
+-- note that master process handles shuffling of release
+-- request and write request
+
+# request new file
+current_id = this_id
+request = (current_id, pid, 1)
+q_out.put(request)
+q_in.get(block=True, timeout=None)
+
 """
 
 
