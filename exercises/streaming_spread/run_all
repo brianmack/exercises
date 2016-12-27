@@ -1,0 +1,19 @@
+#!/bin/bash
+
+python test_time_weight.py
+
+if [[ $? -ne 0 ]]
+then 
+    echo "error in test suite"
+    exit 1
+fi
+
+
+python time_weight.py -1 < data.csv 2> /dev/null 
+
+if [[ $? -ne 0 ]]
+then 
+    echo "error in main script"
+    exit 1
+fi
+

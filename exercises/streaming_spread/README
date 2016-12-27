@@ -1,0 +1,52 @@
+
+------------------------------------------------------
+
+Invocations:
+
+* Run tests and sample data (bash)
+
+`./run_all`
+
+* Test Script
+
+`python test_time_weight.py`
+
+* Sample Data
+
+`python time_weight.py -1 < data.csv` or
+
+`python time_weight.py -1f data.csv`
+
+* Demo Infinite Stream
+
+`python generate_inf_data.py | python time_weight.py`
+
+------------------------------------------------------
+
+
+
+Usage: time_weight.py [options]
+
+Options:
+- -h, --help        show this help message and exit
+- -f FNAME, --path=FNAME
+        file name to open, otherwise stdin
+- -d DELIMITER, --delimiter=DELIMITER
+        field delimiter for input stream
+- -1, --header        source has header line - discard
+
+
+
+
+-------------------------------------------------------
+
+
+Modules:
+
+- time_weight.py:  main module
+- stream_data.py:  wraps file or stream as line-generator
+- generate_inf_data.py:  simulate infinite stream of data
+- test_time_weight.py:  unit tests and test cases
+
+
+
